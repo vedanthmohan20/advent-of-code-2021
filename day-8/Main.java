@@ -75,14 +75,8 @@ public class Main {
         while(in.hasNextLine()) {
             String str = in.nextLine();
             
-            String[] line1 = Arrays.stream(str.substring(0, str.indexOf("|")-1).split(" "))
-                                    .map(s -> s.toCharArray())
-                                    .map(s -> new String(s))
-                                    .toArray(String[]::new);;
-            String[] line2 = Arrays.stream(str.substring(str.indexOf("|")+2).split(" "))
-                                    .map(s -> s.toCharArray())
-                                    .map(s -> new String(s))
-                                    .toArray(String[]::new);;
+            String[] line1 = str.substring(0, str.indexOf("|")-1).split(" ");
+            String[] line2 = str.substring(str.indexOf("|")+2).split(" ");
 
             map.add(line1);
             list.add(line2);
