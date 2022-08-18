@@ -61,26 +61,7 @@ public class Main {
             }
         }
 
-        int n = a.length, m = a[0].length;
-        List<int[]>[] adj = new ArrayList[n * m];
-        for (int i = 0; i < n*m; i++) adj[i] = new ArrayList<>();
-        for (int i = 0; i < n*m; i++) {
-            int row = i / m;
-            int column = i % m;
-
-            if (row + 1 < n) 
-                adj[i].add(new int[]{(row+1)*m+column, a[row+1][column]});
-            if (row - 1 >= 0) 
-                adj[i].add(new int[]{(row-1)*m+column, a[row-1][column]});
-            if (column + 1 < n) 
-                adj[i].add(new int[]{row*m+column+1, a[row][column+1]});
-            if (column - 1 >= 0) 
-                adj[i].add(new int[]{row*m+column-1, a[row][column-1]});
-        }
-
-        Dijkstra d = new Dijkstra(adj);
-        d.dijkstra(0);
-        return d.getShortestDistanceToNode(n*m-1);
+        return part1(a);
     }
 }
 
